@@ -11,7 +11,7 @@ np.set_printoptions(suppress=True)
 
 st.header("BinSpy: An AI Model for Accurate Sorting of Recyclable Items.")
 st.write(
-    "Try uploading an item image and watch how an AI Model with 90% Accuracy Sort Recyclable Items."
+    "Try clicking an item image and watch how an AI Model will detect its label."
 )
 
 st.caption(
