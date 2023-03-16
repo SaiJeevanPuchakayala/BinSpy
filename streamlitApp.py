@@ -52,7 +52,7 @@ if camera_image is not None:
 
 def detect_recyclable_item(img_path):
 
-    best_model = load_model("keras_Model.h5", compile=False)
+    best_model = load_model("./keras_model.h5", compile=False)
 
     # Load the labels
     class_names = open("labels.txt", "r").readlines()
