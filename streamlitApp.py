@@ -10,9 +10,7 @@ np.set_printoptions(suppress=True)
 
 
 st.header("BinSpy: An AI Model for Accurate Sorting of Recyclable Items.")
-st.write(
-    "Try clicking an item image and watch how an AI Model will detect its label."
-)
+st.write("Try clicking an item image and watch how an AI Model will detect its label.")
 
 st.caption(
     "The application will infer the one label out of 6 labels, as follows: Glass, Metal, Paper, Plastic, Trash, Carboard."
@@ -37,7 +35,7 @@ with st.sidebar:
 
 
 camera_image = st.camera_input(
-    label="Upload your item image",
+    label="Click the image of the item you have",
     label_visibility="visible",
 )
 
@@ -84,11 +82,11 @@ def detect_recyclable_item(img_path):
     class_name = class_names[index]
     confidence_score = prediction[0][index]
 
-    Detection_Result = f"The model has detected {class_name[2:]}, with Confidence Score {confidence_score}."
+    Detection_Result = f"The model has detected {class_name[2:]}, with Confidence Score: {str(np.round(confidence_score * 100))[:-2]}%."
     return Detection_Result
 
 
-submit = st.button(label="Submit Image")
+submit = st.button(label="Submit Item Image")
 if submit:
     st.subheader("Output")
     classified_label = detect_recyclable_item(camera_image)
