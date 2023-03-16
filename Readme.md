@@ -63,12 +63,15 @@ gatherUsageStats = false
 > Confusion Matrix
 ![Teachable Machine](./Images/confusion_matrix.png)
 </b></b>
+
 > Accuracy Per Class
 ![Teachable Machine](./Images/accuracy_per_class.jpg)
 </b></b>
+
 > Accuracy Per Epoch
 ![Teachable Machine](./Images/accuracy_per_epoch.png)
 </b></b>
+
 > Loss Per Epoch
 ![Teachable Machine](./Images/loss_per_epoch.png)
 
