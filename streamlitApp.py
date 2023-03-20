@@ -4,9 +4,13 @@ from tensorflow.keras.models import load_model
 from PIL import Image, ImageOps
 import numpy as np
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
+import pandas as pd
 
 # Disable scientific notation for clarity
 np.set_printoptions(suppress=True)
+
+# Define the layout of the app
+st.set_page_config(page_title="BinSpy", page_icon=":camera:")
 
 
 st.header("BinSpy: An AI Model for Accurate Sorting of Recyclable Items.")
@@ -83,12 +87,30 @@ def detect_recyclable_item(img_path):
     confidence_score = prediction[0][index]
 
     Detection_Result = f"The model has detected {class_name[2:]}, with Confidence Score: {str(np.round(confidence_score * 100))[:-2]}%."
-    return Detection_Result
+    return Detection_Result, prediction
 
 
 submit = st.button(label="Submit Item Image")
 if submit:
     st.subheader("Output")
-    classified_label = detect_recyclable_item(camera_image)
+    classified_label, prediction = detect_recyclable_item(camera_image)
     with st.spinner(text="This may take a moment..."):
         st.write(classified_label)
+
+        class_names = open("labels.txt", "r").readlines()
+
+        data = {
+            "Class": class_names,
+            "Confidence Score": prediction[0],
+        }
+
+        df = pd.DataFrame(data)
+
+        df["Confidence Score"] = df["Confidence Score"].apply(
+            lambda x: f"{str(np.round(x*100))[:-2]}%"
+        )
+
+        df["Class"] = df["Class"].apply(lambda x: x.split(" ")[1])
+
+        st.subheader("Confidence Scores on other classes:")
+        st.write(df)
