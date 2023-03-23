@@ -114,3 +114,15 @@ if submit:
 
         st.subheader("Confidence Scores on other classes:")
         st.write(df)
+
+footer = """
+<div style="text-align: center; font-size: medium; margin-top:50px;">
+    If you find BinSpy useful or interesting, please consider starring it on GitHub.
+    <hr>
+    <a href="https://github.com/SaiJeevanPuchakayala/BinSpy" target="_blank">
+    <img src="https://img.shields.io/github/stars/SaiJeevanPuchakayala/BinSpy.svg?style=social" alt="GitHub stars">
+  </a>
+</div>
+"""
+
+st.markdown(footer, unsafe_allow_html=True)
