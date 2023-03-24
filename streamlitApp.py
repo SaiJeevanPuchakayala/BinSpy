@@ -17,7 +17,7 @@ st.header("BinSpy: An AI Model for Accurate Sorting of Recyclable Items.")
 st.write("Try clicking an item image and watch how an AI Model will detect its label.")
 
 st.caption(
-    "The application will infer the one label out of 6 labels, as follows: Glass, Metal, Paper, Plastic, Trash, Carboard."
+    "The application will infer the one label out of 6 labels, as follows: Glass, Metal, Paper, Plastic, Trash, Cardboard."
 )
 
 st.caption(

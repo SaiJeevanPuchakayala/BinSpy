@@ -3,4 +3,4 @@
 2 Paper
 3 Plastic
 4 Trash
-5 Carboard
+5 Cardboard
